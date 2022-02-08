@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {FC} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import './App.css';
+import {IUser} from './interfaces';
+
+const App: FC = () => {
+
+    const user: IUser = {
+        name: "Max",
+        age: 18,
+        gender: 'male'
+    }
+
+    function sum(a: number, b: number):number {
+        return a + b
+    }
+
+    function showSum(a: number, b: number):void {
+        console.log(a + b);
+    }
+
+    function incAge(someUser:IUser, inc:number):IUser {
+        someUser.age += inc
+        return someUser
+    }
+
+    console.log(sum(1, 2));
+    showSum(2, 3)
+    incAge(user, 2)
+    console.log(user)
+
+
+    return (
+        <div className={'App'}>
+            App
+        </div>
+    );
+};
 
 export default App;
